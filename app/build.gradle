@@ -1,0 +1,59 @@
+import dev.steelahhh.buildsrc.Libs
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "dev.steelahhh.weatherapp"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation(Libs.Kotlin.stdlib)
+    implementation(Libs.AndroidX.core)
+    implementation(Libs.AndroidX.appCompat)
+    implementation(Libs.AndroidX.constraintLayout)
+    implementation(Libs.Google.material)
+
+    implementation(Libs.Coroutines.core)
+    implementation(Libs.Coroutines.android)
+
+    implementation(Libs.Coil.coil)
+    implementation(Libs.Retrofit.retrofit)
+    implementation(Libs.Retrofit.moshiConverter)
+
+    implementation(Libs.OkHttp.okhttp)
+    implementation(Libs.OkHttp.loggingInterceptor)
+
+    implementation(Libs.Moshi.core)
+    kapt(Libs.Moshi.kotlin)
+
+    implementation(Libs.AndroidX.Navigation.fragment)
+    implementation(Libs.AndroidX.Navigation.ui)
+
+    implementation(Libs.AndroidX.Lifecycle.viewmodel)
+    implementation(Libs.AndroidX.Lifecycle.livedata)
+
+    testImplementation(Libs.junit)
+    androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
+    androidTestImplementation(Libs.AndroidX.Test.espressoCore)
+}
