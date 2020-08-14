@@ -46,6 +46,14 @@ object Libs {
         const val kotlin = "com.squareup.moshi:moshi-kotlin-codegen:$version"
     }
 
+    object Hilt {
+        private const val version = "2.28.3-alpha"
+        const val library = "com.google.dagger:hilt-android:$version"
+        const val compiler = "com.google.dagger:hilt-android-compiler:$version"
+        const val testing = "com.google.dagger:hilt-android-testing:$version"
+        const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
+    }
+
     object AndroidX {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
         const val core = "androidx.core:core-ktx:1.3.1"
@@ -68,6 +76,12 @@ object Libs {
             private const val version = "2.3.0-alpha06"
             const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
             const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
+        }
+
+        object Hilt {
+            private const val version = "1.0.0-alpha02"
+            const val viewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:$version"
+            const val compiler = "androidx.hilt:hilt-compiler:$version"
         }
 
         object Test {
