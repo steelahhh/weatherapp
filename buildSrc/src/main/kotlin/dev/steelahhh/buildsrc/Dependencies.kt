@@ -14,6 +14,11 @@ object Libs {
 
     object Google {
         const val material = "com.google.android.material:material:1.2.0"
+
+        object Maps {
+            const val service = "com.google.android.gms:play-services-maps:17.0.0"
+            const val utils = "com.google.maps.android:android-maps-utils:2.0.3"
+        }
     }
 
     object Coroutines {
