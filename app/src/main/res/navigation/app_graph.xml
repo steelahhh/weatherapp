@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.steelahhh.weatherapp.features.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_addressPickerFragment"
+            app:destination="@id/addressPickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressPickerFragment"
+        android:name="dev.steelahhh.weatherapp.features.addresspicker.AddressPickerFragment"
+        android:label="AddressPickerFragment" />
+</navigation>
