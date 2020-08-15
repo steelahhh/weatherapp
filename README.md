@@ -6,8 +6,11 @@ A simple weather application based on [openweathermap.org](openweathermap.org)
 # Technologies used
 - Kotlin Coroutines
 - Hilt
-- Android Architecture Components (MVVM, Navigation)
 - Coil
+- Moshi
+- Retrofit
+- Android Architecture Components (MVVM, Navigation)
+
 
 # Build
 You can download the pre-built apk from [releases page](https://github.com/steelahhh/weatherapp/releases/tag/0.0.1)
