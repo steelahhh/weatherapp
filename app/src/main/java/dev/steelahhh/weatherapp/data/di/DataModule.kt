@@ -10,6 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.steelahhh.weatherapp.BuildConfig
 import dev.steelahhh.weatherapp.data.ApiKeyInterceptor
 import dev.steelahhh.weatherapp.data.KeyValueStorage
+import dev.steelahhh.weatherapp.data.QueryParametersInterceptor
 import dev.steelahhh.weatherapp.data.WeatherService
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
@@ -39,7 +40,7 @@ object DataModule {
 
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor? {
-        if (BuildConfig.DEBUG) return null
+        if (!BuildConfig.DEBUG) return null
 
         return HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -50,12 +51,14 @@ object DataModule {
     @Singleton
     fun provideOkHttpClient(
         apiKeyInterceptor: ApiKeyInterceptor,
+        queryParametersInterceptor: QueryParametersInterceptor,
         httpLoggingInterceptor: HttpLoggingInterceptor?
     ): OkHttpClient = OkHttpClient.Builder()
         .apply {
             if (httpLoggingInterceptor != null)
                 addNetworkInterceptor(httpLoggingInterceptor)
         }
+        .addInterceptor(queryParametersInterceptor)
         .addInterceptor(apiKeyInterceptor)
         .build()
 
