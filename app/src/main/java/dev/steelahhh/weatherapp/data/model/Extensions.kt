@@ -74,11 +74,11 @@ fun WeatherOneCallResponse.toUi(
  */
 fun getLocation(
     geocoder: Geocoder,
-    lat: Double,
-    lon: Double
+    latitude: Double,
+    longitude: Double
 ): String {
     return try {
-        val addresses: List<Address> = geocoder.getFromLocation(lat, lon, 1)
+        val addresses: List<Address> = geocoder.getFromLocation(latitude, longitude, 1)
         when {
             addresses.isNotEmpty() -> addresses.first().getAddressLine(0)
             else -> UNKNOWN_LOCATION

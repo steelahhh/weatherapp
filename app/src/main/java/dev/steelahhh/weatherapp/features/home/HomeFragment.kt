@@ -40,10 +40,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setupListeners() {
-        setFragmentResultListener(ADDRESS_REQUEST_ID) { key, bundle ->
-            if (key == ADDRESS_REQUEST_ID) {
-                // TODO: handle the picked address
-            }
+        setFragmentResultListener(ADDRESS_REQUEST_ID) { key, _ ->
+            if (key == ADDRESS_REQUEST_ID) vm.refresh()
         }
 
         changeAddressButton.setOnClickListener {

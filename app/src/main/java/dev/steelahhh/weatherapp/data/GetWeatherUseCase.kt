@@ -22,25 +22,13 @@ const val LONGITUDE_KEY = "key:longitude"
  */
 class GetWeatherUseCase @Inject constructor(
     private val weatherService: WeatherService,
-    private val keyValueStorage: KeyValueStorage,
     private val geocoder: Geocoder,
-    @ActivityContext private val context: Context
+    @ActivityContext private val context: Context,
+    private val locationRepository: LocationRepository
 ) {
-    companion object {
-        const val DEFAULT_LAT = 52.364138
-        const val DEFAULT_LNG = 4.891697
-    }
 
     suspend fun invoke(): Either<Throwable, Weather> {
-        val latitude = keyValueStorage.getString(
-            key = LATITUDE_KEY,
-            default = DEFAULT_LAT.toString()
-        ).toDouble()
-
-        val longitude = keyValueStorage.getString(
-            key = LONGITUDE_KEY,
-            default = DEFAULT_LNG.toString()
-        ).toDouble()
+        val (latitude, longitude) = locationRepository.getLatLng()
 
         return try {
             val weather = weatherService.getWeather(
