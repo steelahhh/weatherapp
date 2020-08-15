@@ -7,9 +7,11 @@ package dev.steelahhh.weatherapp.data.model
 
 data class Weather(
     val location: String = "",
-    val temperature: String,
-    val temperatureFeelsLike: String,
+    val temperature: CharSequence,
     val icon: String,
     val description: String,
-    val humidity: String
+    val humidity: String,
+    val pressure: String,
+    val windSpeed: String,
+    val uvIndex: String
 )

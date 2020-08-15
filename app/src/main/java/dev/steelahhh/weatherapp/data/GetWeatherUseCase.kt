@@ -1,6 +1,8 @@
 package dev.steelahhh.weatherapp.data
 
+import android.content.Context
 import android.location.Geocoder
+import dagger.hilt.android.qualifiers.ActivityContext
 import dev.steelahhh.weatherapp.core.Either
 import dev.steelahhh.weatherapp.data.model.Weather
 import dev.steelahhh.weatherapp.data.model.toUi
@@ -21,7 +23,8 @@ const val LONGITUDE_KEY = "key:longitude"
 class GetWeatherUseCase @Inject constructor(
     private val weatherService: WeatherService,
     private val keyValueStorage: KeyValueStorage,
-    private val geocoder: Geocoder
+    private val geocoder: Geocoder,
+    @ActivityContext private val context: Context
 ) {
     companion object {
         const val DEFAULT_LAT = 52.364138
@@ -43,7 +46,7 @@ class GetWeatherUseCase @Inject constructor(
             val weather = weatherService.getWeather(
                 latitude = latitude,
                 longitude = longitude
-            ).toUi(geocoder, latitude, longitude)
+            ).toUi(context, geocoder, latitude, longitude)
 
             if (weather != null) {
                 Either.Right(weather)

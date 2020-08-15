@@ -25,7 +25,8 @@ data class CurrentWeatherResponse(
     @Json(name = "wind_speed")
     val windSpeed: Double,
     @Json(name = "wind_deg")
-    val windDegree: Double
+    val windDegree: Double,
+    val uvi: Double
 )
 
 @JsonClass(generateAdapter = true)
