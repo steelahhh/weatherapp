@@ -1,4 +1,4 @@
-package dev.steelahhh.weatherapp.data
+package dev.steelahhh.weatherapp.data.network
 
 import dev.steelahhh.weatherapp.data.model.WeatherOneCallResponse
 import retrofit2.http.GET

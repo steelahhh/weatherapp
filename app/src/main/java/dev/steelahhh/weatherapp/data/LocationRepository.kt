@@ -11,6 +11,9 @@ class LocationRepository @Inject constructor(
     private val keyValueStorage: KeyValueStorage
 ) {
     companion object {
+        const val LATITUDE_KEY = "key:latitude"
+        const val LONGITUDE_KEY = "key:longitude"
+
         const val DEFAULT_LAT = 52.364138
         const val DEFAULT_LNG = 4.891697
     }

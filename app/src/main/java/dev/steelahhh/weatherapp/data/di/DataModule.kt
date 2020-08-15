@@ -8,10 +8,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.steelahhh.weatherapp.BuildConfig
-import dev.steelahhh.weatherapp.data.ApiKeyInterceptor
 import dev.steelahhh.weatherapp.data.KeyValueStorage
-import dev.steelahhh.weatherapp.data.QueryParametersInterceptor
-import dev.steelahhh.weatherapp.data.WeatherService
+import dev.steelahhh.weatherapp.data.network.ApiKeyInterceptor
+import dev.steelahhh.weatherapp.data.network.QueryParametersInterceptor
+import dev.steelahhh.weatherapp.data.network.WeatherService
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -75,5 +75,6 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideApi(retrofit: Retrofit): WeatherService = retrofit.create(WeatherService::class.java)
+    fun provideApi(retrofit: Retrofit): WeatherService = retrofit.create(
+        WeatherService::class.java)
 }

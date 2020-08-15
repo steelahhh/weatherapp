@@ -4,19 +4,18 @@ import android.content.Context
 import android.location.Geocoder
 import dagger.hilt.android.qualifiers.ActivityContext
 import dev.steelahhh.weatherapp.core.Either
+import dev.steelahhh.weatherapp.data.LocationRepository.Companion.LATITUDE_KEY
+import dev.steelahhh.weatherapp.data.LocationRepository.Companion.LONGITUDE_KEY
 import dev.steelahhh.weatherapp.data.model.Weather
 import dev.steelahhh.weatherapp.data.model.toUi
+import dev.steelahhh.weatherapp.data.network.WeatherService
 import javax.inject.Inject
 
-/*
+/**
  * Author: steelahhh
  * 15/8/20
- */
-
-const val LATITUDE_KEY = "key:latitude"
-const val LONGITUDE_KEY = "key:longitude"
-
-/**
+ *
+ *
  * Gets weather for location specified by [LATITUDE_KEY] and [LONGITUDE_KEY],
  *  that can be changed in AddressPickerFragment
  */

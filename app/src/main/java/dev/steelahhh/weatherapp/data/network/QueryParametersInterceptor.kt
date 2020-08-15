@@ -1,5 +1,6 @@
-package dev.steelahhh.weatherapp.data
+package dev.steelahhh.weatherapp.data.network
 
+import dev.steelahhh.weatherapp.data.KeyValueStorage
 import javax.inject.Inject
 import javax.inject.Singleton
 import okhttp3.Interceptor
@@ -28,8 +29,14 @@ class QueryParametersInterceptor @Inject constructor() : Interceptor {
         val original = chain.request()
 
         val newUrl = original.url.newBuilder()
-            .addQueryParameter(EXCLUDE_KEY, EXCLUDED_WEATHER)
-            .addQueryParameter(UNITS_KEY, METRIC)
+            .addQueryParameter(
+                EXCLUDE_KEY,
+                EXCLUDED_WEATHER
+            )
+            .addQueryParameter(
+                UNITS_KEY,
+                METRIC
+            )
             .build()
 
         val newRequest = original.newBuilder().url(newUrl).build()

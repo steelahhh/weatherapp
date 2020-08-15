@@ -6,6 +6,6 @@ package dev.steelahhh.weatherapp.data
  */
 
 data class WeatherNotFoundException(
-    val lat: Double,
-    val lon: Double
-) : Throwable("Couldn't find weather for location: ($lat,$lon)")
+    val latitude: Double,
+    val longitude: Double
+) : Throwable("Couldn't find weather for location: ($latitude,$longitude)")
